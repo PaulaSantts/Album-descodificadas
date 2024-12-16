@@ -1,0 +1,74 @@
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.title {
+    text-align: center;
+    color: darkslategrey;
+}
+
+.shout {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    background: #ffcc00;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 3px 3px 0 #333;
+}
+
+.shout::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #ffcc00;
+    border-bottom: 0 solid transparent;
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+.album {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.album img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+}
